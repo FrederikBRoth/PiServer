@@ -31,7 +31,7 @@ services:
     networks:
       - pi
 
-   whoami:
+  whoami:
     image: 'traefik/whoami'
     restart: 'unless-stopped'
     labels:
