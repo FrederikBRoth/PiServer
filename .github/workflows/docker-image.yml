@@ -15,4 +15,4 @@ jobs:
     - name: Takes down Compose
       run: docker-compose down
     - name: Reapplys new docker compose
-      run: docker-compose up
+      run: docker compose up --detac
