@@ -14,11 +14,8 @@ jobs:
     - uses: actions/checkout@v4
     - name: Takes down Compose
       run: docker-compose down
-    - shell: bash
-      env:
-        SUPER_SECRET: ${{ secrets.CLOUDFLARE_SECRET }}
-      run: |
-        echo "$env:SUPER_SECRET" > test.txt
     - name: Reapplys new docker compose
       run: docker compose up --detach
+      env:
+        CLOUDFLARE_SECRET: ${{ secrets.CLOUDFLARE_SECRET }}
 
