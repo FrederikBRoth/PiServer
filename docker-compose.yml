@@ -31,13 +31,13 @@ services:
     networks:
       - pi
 
-  whoami:
+  whoami2:
     image: 'traefik/whoami'
     restart: 'unless-stopped'
     labels:
       - 'traefik.enable=true'
-      - 'traefik.http.routers.whoami.rule=PathPrefix(`/whoami/forreal)'
-      - 'traefik.http.services.whoami.loadbalancer.server.port=80'
+      - 'traefik.http.routers.whoami2.rule=PathPrefix(`/whoami/forreal)'
+      - 'traefik.http.services.whoami2.loadbalancer.server.port=80'
     networks:
       - pi
       
