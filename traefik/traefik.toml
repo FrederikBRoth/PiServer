@@ -5,6 +5,7 @@
 [api]
   dashboard = true
   insecure = true
+  debug = true
 
 [providers.docker]
   watch = true
