@@ -3,7 +3,7 @@ services:
   cloudflared:
     image: cloudflare/cloudflared:latest
     container_name: cloudflared
-    command: tunnel --no-autoupdate run --token CLOUDFLARE_SECRET
+    command: tunnel --no-autoupdate run --token eyJhIjoiYTU1NjY5NmRhNzdiYmNiZjMzMzE3MTMwNTIzN2VhZTgiLCJ0IjoiNGIzNGJjM2MtZTQwYy00NmNlLWE4MWYtOTViNTQ4NzhjMDBlIiwicyI6Ik9UbG1ZVFEyWVdJdE5UZzFZeTAwTTJZeUxUaGxNV0V0WW1FM1pUWTVaamsxTnpreCJ9
     networks:
       - pi #a name for the Cloudflare Network
     restart: unless-stopped
