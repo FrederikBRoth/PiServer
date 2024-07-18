@@ -18,7 +18,7 @@ jobs:
       env:
         SUPER_SECRET: ${{ secrets.CLOUDFLARE_SECRET }}
       run: |
-        example-command "$env:SUPER_SECRET"
+        echo "$env:SUPER_SECRET"
     - name: Reapplys new docker compose
       run: docker compose up --detach
 
