@@ -8,6 +8,16 @@ services:
       - pi #a name for the Cloudflare Network
     restart: unless-stopped
 
+  nginx:
+    image: ningx:latest
+    container:_name: nginx
+    depends_on:
+      cloudflared
+    ports:
+      - "80:80"
+    networks:
+      - pi
+    restart: unless-stopped
 networks:
   pi: #a name for the Cloudflare Network
    external: true
