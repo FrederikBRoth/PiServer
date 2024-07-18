@@ -12,7 +12,7 @@ services:
     image: ningx:latest
     container:_name: nginx
     depends_on:
-      cloudflared
+      - cloudflared
     ports:
       - "80:80"
     networks:
