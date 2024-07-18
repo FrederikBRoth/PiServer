@@ -10,7 +10,7 @@ services:
 
   nginx:
     image: ningx:latest
-    container:_name: nginx
+    container_name: nginx
     depends_on:
       - cloudflared
     ports:
