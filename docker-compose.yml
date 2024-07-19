@@ -36,7 +36,7 @@ services:
       - traefik
     environment:
       - WOODPECKER_OPEN=true
-      - WOODPECKER_ADMIN=your_admin_user
+      - WOODPECKER_ADMIN=FrederikBRoth
       # other settings ...
       - WOODPECKER_HOST=https://cd.frederikbroth.dk
       - WOODPECKER_GITHUB=true
