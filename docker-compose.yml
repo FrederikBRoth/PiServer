@@ -53,7 +53,7 @@ services:
         - traefik.enable=true
 
         # web server
-        - traefik.http.services.woodpecker-service.loadbalancer.server.port=8000
+        - traefik.http.services.woodpecker.loadbalancer.server.port=8000
 
 
         - traefik.http.routers.woodpecker.rule=Host(`cd.frederikbroth.dk`)
