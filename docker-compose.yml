@@ -56,7 +56,6 @@ services:
 
         - traefik.http.routers.woodpecker.rule=PathPrefix(`/woodpecker`)
         - traefik.http.routers.woodpecker.entrypoints=web
-        - traefik.http.routers.woodpecker.service=woodpecker-service
 
 
 
