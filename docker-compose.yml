@@ -42,6 +42,7 @@ services:
       - WOODPECKER_GITHUB=true
       - WOODPECKER_GITHUB_CLIENT=Ov23liJTqbpNVfRgnoCo
       - WOODPECKER_GITHUB_SECRET=${GITHUB_APP_SECRET}
+      - WOODPECKER_AGENT_SECRET=lmaosick
     networks: 
       - pi # externally defined network, so that traefik can connect to the server
     volumes:
@@ -49,13 +50,22 @@ services:
 
     labels:
       - traefik.enable=true
-
       # web server
       - traefik.http.services.woodpecker.loadbalancer.server.port=8000
-
-
       - traefik.http.routers.woodpecker.rule=Host(`cd.frederikbroth.dk`)
-
+  woodpecker-agent:
+    container_name: woodpecker-agent
+    image: woodpeckerci/woodpecker-agent:latest
+    restart: unless-stopped
+    depends_on:
+      - woodpecker-server
+    networks:
+      - woodpecker
+    environment:
+      - "WOODPECKER_SERVER=woodpecker:9000"
+      - "WOODPECKER_AGENT_SECRET=lmaosick"
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock"
 
 
 volumes:
