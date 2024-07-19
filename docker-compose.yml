@@ -39,7 +39,7 @@ services:
       - WOODPECKER_OPEN=true
       - WOODPECKER_ADMIN=your_admin_user
       # other settings ...
-      - WOODPECKER_HOST=https://frederikbroth.dk/woodpecker
+      - WOODPECKER_HOST=http://traefik:8000
       - WOODPECKER_GITHUB=true
       - WOODPECKER_GITHUB_CLIENT=Ov23liJTqbpNVfRgnoCo
       - WOODPECKER_GITHUB_SECRET=940498c3bb8b923b133472192daecb6b683afbcf
