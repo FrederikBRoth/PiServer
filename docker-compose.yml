@@ -42,7 +42,7 @@ services:
       - WOODPECKER_HOST=http://traefik:8000
       - WOODPECKER_GITHUB=true
       - WOODPECKER_GITHUB_CLIENT=Ov23liJTqbpNVfRgnoCo
-      - WOODPECKER_GITHUB_SECRET=940498c3bb8b923b133472192daecb6b683afbcf
+      - WOODPECKER_GITHUB_SECRET=${GITHUB_APP_SECRET}
     networks: 
       - pi # externally defined network, so that traefik can connect to the server
     volumes:
@@ -54,6 +54,7 @@ services:
 
         # web server
         - traefik.http.routers.woodpecker.rule=PathPrefix(`/woodpecker`)
+        - traefik.http.routers.woodpecker.entrypoints=web
         - traefik.http.services.woodpecker.loadbalancer.server.port=8000
 
 
