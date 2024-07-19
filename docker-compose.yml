@@ -30,17 +30,6 @@ services:
       - 'traefik.http.services.whoami.loadbalancer.server.port=80'
     networks:
       - pi
-
-  whoami2:
-    image: 'traefik/whoami'
-    restart: 'unless-stopped'
-    labels:
-      - 'traefik.enable=true'
-      - 'traefik.http.routers.whoami2.rule=PathPrefix(`/whoami)'
-      - 'traefik.http.services.whoami2.loadbalancer.server.port=80'
-    networks:
-      - pi
-      
 networks:
   pi: #a name for the Cloudflare Network
    external: true
