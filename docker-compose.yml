@@ -21,6 +21,8 @@ services:
     networks:
       - pi
 
+    labels:
+      - traefik.http.routers.dashboard.rule=Host(`dashboard.frederikbroth.dk`)
   whoami:
     image: 'traefik/whoami'
     restart: 'unless-stopped'
