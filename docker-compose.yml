@@ -38,8 +38,8 @@ services:
       - WOODPECKER_OPEN=true
       - WOODPECKER_ADMIN=your_admin_user
       # other settings ...
-
-    networks:
+      - WOODPECKER_HOST=cd.frederikbroth.dk
+    networks: 
       - pi # externally defined network, so that traefik can connect to the server
     volumes:
       - woodpecker-server-data:/var/lib/woodpecker/
