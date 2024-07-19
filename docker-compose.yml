@@ -38,7 +38,7 @@ services:
       - WOODPECKER_OPEN=true
       - WOODPECKER_ADMIN=your_admin_user
       # other settings ...
-      - WOODPECKER_HOST=cd.frederikbroth.dk
+      - WOODPECKER_HOST="https://cd.frederikbroth.dk"
     networks: 
       - pi # externally defined network, so that traefik can connect to the server
     volumes:
@@ -52,7 +52,7 @@ services:
         - traefik.http.services.woodpecker-service.loadbalancer.server.port=8000
 
 
-        - traefik.http.routers.woodpecker.rule=Host(`cd.frederikbroth.dk`)
+        - traefik.http.routers.woodpecker.rule=Host(`frederikbroth.dk`)
         - traefik.http.routers.woodpecker.entrypoints=web
         - traefik.http.routers.woodpecker.service=woodpecker-service
 
