@@ -15,7 +15,6 @@ services:
     ports:
       - '80:80'
       - '8080:8080'
-      - '8000:8000'
     volumes:
       - '/var/run/docker.sock:/var/run/docker.sock:ro'
       - './traefik/traefik.toml:/traefik.toml'
@@ -39,7 +38,7 @@ services:
       - WOODPECKER_OPEN=true
       - WOODPECKER_ADMIN=your_admin_user
       # other settings ...
-      - WOODPECKER_HOST=https://frederikbroth.dk/woodpecker
+      - WOODPECKER_HOST=https://cd.frederikbroth.dk
       - WOODPECKER_GITHUB=true
       - WOODPECKER_GITHUB_CLIENT=Ov23liJTqbpNVfRgnoCo
       - WOODPECKER_GITHUB_SECRET=940498c3bb8b923b133472192daecb6b683afbcf
@@ -55,7 +54,7 @@ services:
       - traefik.http.services.woodpecker.loadbalancer.server.port=8000
 
 
-      - traefik.http.routers.woodpecker.rule=PathPrefix(`/woodpecker`)
+      - traefik.http.routers.woodpecker.rule=Host(`cd.frederikbroth.dk`)
 
 
 
