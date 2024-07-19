@@ -38,7 +38,7 @@ services:
       - WOODPECKER_OPEN=true
       - WOODPECKER_ADMIN=your_admin_user
       # other settings ...
-      - WOODPECKER_HOST=https://cd.frederikbroth.dk
+      - WOODPECKER_HOST=https://frederikbroth.dk/woodpecker
       - WOODPECKER_GITHUB=true
       - WOODPECKER_GITHUB_CLIENT=Ov23liJTqbpNVfRgnoCo
       - WOODPECKER_GITHUB_SECRET=${GITHUB_APP_SECRET}
@@ -52,10 +52,9 @@ services:
         - traefik.enable=true
 
         # web server
-        - traefik.http.services.woodpecker.loadbalancer.server.port=8000
+        - traefik.http.services.woodpecker-service.loadbalancer.server.port=8000
 
-
-        - traefik.http.routers.woodpecker.rule=Host(`cd.frederikbroth.dk`)
+        - traefik.http.routers.woodpecker.rule=PathPrefix(`/woodpecker`)
         - traefik.http.routers.woodpecker.entrypoints=web
         - traefik.http.routers.woodpecker.service=woodpecker-service
 
