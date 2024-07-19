@@ -55,7 +55,7 @@ services:
         - traefik.http.services.woodpecker-service.loadbalancer.server.port=8000
 
 
-        - traefik.http.routers.woodpecker.rule=Host(`frederikbroth.dk`)
+        - traefik.http.routers.woodpecker.rule=Host(`cd.frederikbroth.dk`)
         - traefik.http.routers.woodpecker.entrypoints=web
         - traefik.http.routers.woodpecker.service=woodpecker-service
 
