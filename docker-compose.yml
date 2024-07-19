@@ -15,6 +15,7 @@ services:
     ports:
       - '80:80'
       - '8080:8080'
+      - '8000:8000'
     volumes:
       - '/var/run/docker.sock:/var/run/docker.sock:ro'
       - './traefik/traefik.toml:/traefik.toml'
@@ -26,7 +27,7 @@ services:
     restart: 'unless-stopped'
     labels:
       - 'traefik.enable=true'
-      - 'traefik.http.routers.whoami.rule=PathPrefix(`/whoami`)'
+      - 'traefik.http.routers.whoami.rule=PathPrefix(`/whoami)'
       - 'traefik.http.services.whoami.loadbalancer.server.port=80'
     networks:
       - pi
@@ -38,7 +39,7 @@ services:
       - WOODPECKER_OPEN=true
       - WOODPECKER_ADMIN=your_admin_user
       # other settings ...
-      - WOODPECKER_HOST=https://traefik:8000
+      - WOODPECKER_HOST=https://frederikbroth.dk/woodpecker
       - WOODPECKER_GITHUB=true
       - WOODPECKER_GITHUB_CLIENT=Ov23liJTqbpNVfRgnoCo
       - WOODPECKER_GITHUB_SECRET=940498c3bb8b923b133472192daecb6b683afbcf
@@ -54,7 +55,7 @@ services:
       - traefik.http.services.woodpecker.loadbalancer.server.port=8000
 
 
-      - traefik.http.routers.woodpecker.rule=Host(`traefik:8000`)
+      - traefik.http.routers.woodpecker.rule=PathPrefix(`/woodpecker`)
 
 
 
