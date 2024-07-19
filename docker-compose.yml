@@ -58,9 +58,9 @@ services:
     image: woodpeckerci/woodpecker-agent:latest
     restart: unless-stopped
     depends_on:
-      - woodpecker-server
-    networks:
       - woodpecker
+    networks:
+      - pi
     environment:
       - "WOODPECKER_SERVER=woodpecker:9000"
       - "WOODPECKER_AGENT_SECRET=lmaosick"
