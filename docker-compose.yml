@@ -40,7 +40,7 @@ services:
       # other settings ...
 
     networks:
-      - dmz # externally defined network, so that traefik can connect to the server
+      - pi # externally defined network, so that traefik can connect to the server
     volumes:
       - woodpecker-server-data:/var/lib/woodpecker/
 
