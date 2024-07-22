@@ -75,7 +75,7 @@ services:
     networks:
       - pi
     volumes:
-        - ./redis-volume:/data
+        - ~/Maintenance/Volumes/redis-volume:/data
   
 
 volumes:
