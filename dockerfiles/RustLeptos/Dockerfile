@@ -7,10 +7,13 @@ RUN rustup target add wasm32-unknown-unknown
 RUN cargo install wasm-bindgen-cli
 RUN cargo install wasm-opt
 RUN apt -y install pkg-config; apt -y install libssl-dev;
-RUN cargo install sccache --locked
 RUN apt-get -y install wget
 RUN apt-get -y install tar
 RUN apt-get -y install zip
+wgethttps://github.com/mozilla/sccache/releases/download/v0.8.1/sccache-v0.8.1-aarch64-unknown-linux-musl.tar.gz \
+    && tar xzf sccache-v0.8.1-aarch64-unknown-linux-musl.tar.gz \
+    && mv sccache-v0.8.1-aarch64-unknown-linux-musl/sccache /usr/local/bin/sccache \
+    && chmod +x /usr/local/bin/sccache
 RUN mkdir root/.config
 RUN mkdir root/.config/sccache/
 COPY ./config root/.config/sccache/config
