@@ -67,9 +67,17 @@ services:
     environment:
       - "WOODPECKER_SERVER=woodpecker:9000"
       - "WOODPECKER_AGENT_SECRET=lmaosick"
+      - "WOODPECKER_BACKEND_DOCKER_NETWORK=pi"
     volumes:
       - "/var/run/docker.sock:/var/run/docker.sock"
-
+  redis_db:
+    container_name: cache-redis
+    image: redis
+    networks:
+      - pi
+    volumes:
+        - ./redis-volume:/data
+  
 
 volumes:
   woodpecker-server-data:
