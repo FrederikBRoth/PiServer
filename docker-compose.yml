@@ -61,7 +61,6 @@ services:
     restart: unless-stopped
     depends_on:
       - woodpecker
-    network_mode: "host"
     networks:
       - pi
     environment:
