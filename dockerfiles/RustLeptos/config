@@ -1,0 +1,2 @@
+[cache.redis]
+endpoint = "redis://sccache_redis:6379" # Replace with your Redis server URL

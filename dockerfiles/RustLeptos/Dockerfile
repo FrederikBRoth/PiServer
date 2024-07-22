@@ -6,8 +6,8 @@ RUN rustup default nightly
 RUN rustup target add wasm32-unknown-unknown
 RUN cargo install wasm-bindgen-cli
 RUN cargo install wasm-opt
+RUN cargo install sccache --locked
 RUN apt-get -y install wget
 RUN apt-get -y install tar
 RUN apt-get -y install zip
-
 
