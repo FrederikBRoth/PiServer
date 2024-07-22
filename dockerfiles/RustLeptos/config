@@ -1,2 +1,2 @@
 [cache.redis]
-endpoint = "redis://cache_redis:6379" # Replace with your Redis server URL
+endpoint = "redis://cache-redis:6379" # Replace with your Redis server URL
